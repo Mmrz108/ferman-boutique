@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.env*.local
+.env
+*.tsbuildinfo
+.DS_Store
+*.zip
+motion3.zip
+frames.zip
+frames2.zip
+db/*.sqlite
+db/*.sqlite-wal
+db/*.sqlite-shm
+db/*.db

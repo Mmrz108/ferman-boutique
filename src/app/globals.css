@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #0e0d0c;
+  color: #f5eee3;
+  direction: rtl;
+  font-feature-settings: "ss01" on;
+}
+
+/* Persian numerals + tabular alignment for prices */
+.fa-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hairline divider used for structural rhythm */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    to left,
+    transparent,
+    #2a2722 15%,
+    #2a2722 85%,
+    transparent
+  );
+}
+
+.hairline-gold {
+  height: 1px;
+  width: 2.5rem;
+  background: #c9a063;
+}
+
+/* Custom scrollbar - subtle, premium */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0d0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2722;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a8178;
+}
+
+/* Visible keyboard focus, accessible on dark theme */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1.5px solid #c9a063;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Canvas wrapper must never trap scroll or block pointer events on overlay text */
+.hero-canvas-layer {
+  pointer-events: none;
+}
+.hero-canvas-layer canvas {
+  pointer-events: auto;
+}

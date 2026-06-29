@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+.git
+*.zip
+db/*.sqlite
+db/*.sqlite-wal
+db/*.sqlite-shm
+.env
+.env*.local
