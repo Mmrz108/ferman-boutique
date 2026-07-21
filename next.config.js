@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: "standalone",
+  // روی Vercel از خروجی پیش‌فرض استفاده می‌شود؛ standalone فقط برای لیارا
+  ...(process.env.LIARA_PLATFORM || process.env.PLATFORM === "liara"
+    ? { output: "standalone" }
+    : {}),
   experimental: {
     serverComponentsExternalPackages: ["sqlite3"],
   },
@@ -12,6 +15,19 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/frames3/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
   },
 };
 
